@@ -34,13 +34,11 @@ func draw(w *app.Window) error {
 		//evt := w.Event()
 
 		// then detect the type
-		//switch typ := evt.(type) {
 		switch e := w.Event().(type) {
 
 		// this is sent when the application should re-render.
 		case app.FrameEvent:
 
-			//gtx := app.NewContext(&ops, typ)
 			gtx := app.NewContext(&ops, e)
 
 			layout.Flex{
@@ -58,7 +56,6 @@ func draw(w *app.Window) error {
 				),
 			)
 			e.Frame(gtx.Ops)
-			//typ.Frame(gtx.Ops)
 
 		// and this is sent when the application should exit
 		case app.DestroyEvent:
